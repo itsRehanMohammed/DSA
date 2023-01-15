@@ -200,100 +200,14 @@ public class Arrays {
         System.out.println(maxProfit);
     }
 
-    // assignment questions
-
-    // Given an integer array nums, return true if any value appears at least twice
-    // in the array, and return false if every element is distinct.
-    public static boolean distinctOrNot(int nums[]) {
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == nums[i]) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    public static int search(int nums[], int target) {
-        for (int i = 0; i < nums.length; i++) {
-            if (target == nums[i]) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    // You are given an array prices where prices[i] is the price of a given stock
-    // on the ith day.Return the maximum profit you can achieve from this
-    // transaction. If you cannot achieve any profit, return 0.
-
-    public static void maxProfit(int prices[]) {
-        int buyingPrice = Integer.MAX_VALUE;
-        int maxProfit = 0;
-        for (int i = 0; i < prices.length; i++) {
-            if (buyingPrice < prices[i]) {
-                int profit = prices[i] - buyingPrice;
-                maxProfit = Math.max(maxProfit, profit);
-            } else {
-                buyingPrice = prices[i];
-            }
-        }
-        System.out.println(maxProfit);
-    }
-
-    // Given n non-negative integers representing an elevation map where the width
-    // of each bar is 1, compute how much water it can trap after raining.
-    // [[[[[[----- It can be done using auxillary/helpers array -------]]]]]]]
-
-    public static void trappedWater(int height[]) {
-        // calculate left max array
-        int leftMax[] = new int[height.length];
-        leftMax[0] = height[0];
-        for (int i = 1; i < height.length; i++) {
-            leftMax[i] = Math.max(height[i], leftMax[i - 1]);
-        }
-        // calculate right max array
-        int rightMax[] = new int[height.length];
-        rightMax[rightMax.length - 1] = height[height.length - 1];
-        for (int i = height.length - 2; i >= 0; i--) {
-            rightMax[i] = Math.max(height[i], rightMax[i + 1]);
-        }
-
-        // Loop
-        int trapped_water = 0;
-        for (int i = 0; i < height.length; i++) {
-            int waterLevel = Math.min(leftMax[i], rightMax[i]);
-            trapped_water += waterLevel - height[i];
-        }
-        System.out.println(trapped_water);
-
-    }
-    // Given an integer array nums, return all the triplets [nums[i], nums[j],
-    // nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] +
-    // nums[k] == 0. Notice that the solution set must not contain duplicate
-    // triplets
-    // ToDo
-    // public static void triplets(int nums[]) {
-    // for (int i = 0; i <= nums.length; i++) {
-    // for (int j = i + 1; j < nums.length; j++) {
-    // for (int k = j + 1; k < nums.length; k++) {
-    // if (nums[i] + nums[j] + nums[k] == 0 && nums[i] != nums[j] && nums[i] !=
-    // nums[k]
-    // && nums[j] != nums[k]) {
-    // System.out.println(nums[i]);
-    // }
-    // }
-    // }
-    // }
-    // }
-
     public static void main(String args[]) {
         // int nums[] = { -1, 0, 1, 2, -1, -4 };
         // int height[] = { 4, 2, 0, 6, 2, 3, 5 };
         // int prices[] = { 7, 1, 5, 3, 6, 4 };
         // int numbers[] = { 1, 3, 4, 6, 8 };
 
+    }
+
+    public static void sort(int[] arr) {
     }
 }
